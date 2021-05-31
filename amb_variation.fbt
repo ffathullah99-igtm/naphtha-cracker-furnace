@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FBType Name="amb_variation" Comment="Basic FB with empty ECC">
+	<Identification Standard="61499-2">
+	</Identification>
+	<VersionInfo Version="1.0" Author="Lenovo" Date="2021-03-22">
+	</VersionInfo>
+	<InterfaceList>
+		<EventInputs>
+			<Event Name="Init" Type="Event" Comment="">
+				<With Var="t"/>
+			</Event>
+			<Event Name="REQ" Type="Event" Comment="">
+				<With Var="t"/>
+			</Event>
+		</EventInputs>
+		<EventOutputs>
+			<Event Name="Inito" Type="Event" Comment="">
+				<With Var="Out_sinewave"/>
+			</Event>
+			<Event Name="CNF" Type="Event" Comment="">
+				<With Var="Out_sinewave"/>
+			</Event>
+		</EventOutputs>
+		<InputVars>
+			<VarDeclaration Name="t" Type="REAL" Comment=""/>
+		</InputVars>
+		<OutputVars>
+			<VarDeclaration Name="Out_sinewave" Type="REAL" Comment=""/>
+		</OutputVars>
+	</InterfaceList>
+	<BasicFB>
+		<InternalVars>
+			<VarDeclaration Name="freq" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="stime" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="phase" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="f_st" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="x" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="y" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="z" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="m" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+		</InternalVars>
+		<ECC>
+			<ECState Name="START" Comment="Initial State" x="550.0" y="425.0">
+			</ECState>
+			<ECState Name="Initialization" Comment="" x="1500.0" y="200.0">
+				<ECAction Algorithm="Initial" Output="Inito"/>
+			</ECState>
+			<ECState Name="Calculation" Comment="" x="1265.0" y="835.0">
+				<ECAction Algorithm="Calculate" Output="CNF"/>
+			</ECState>
+			<ECTransition Source="START" Destination="Initialization" Condition="Init" Comment="" x="1100.0" y="230.0"/>
+			<ECTransition Source="Initialization" Destination="START" Condition="1" Comment="" x="1515.0" y="470.0"/>
+			<ECTransition Source="START" Destination="Calculation" Condition="REQ" Comment="" x="1200.0" y="660.0"/>
+			<ECTransition Source="Calculation" Destination="START" Condition="1" Comment="" x="960.0" y="815.0"/>
+		</ECC>
+		<Algorithm Name="Initial" Comment="New Algorithm">
+			<ST><![CDATA[]]></ST>
+		</Algorithm>
+		<Algorithm Name="Calculate" Comment="New Algorithm">
+			<ST><![CDATA[freq:=0.0043633231299859;
+phase:=0;
+f_st:=freq*t;
+x:=f_st+phase;
+y:=sin(x);
+z:=10*y;;
+Out_sinewave:=z;]]></ST>
+		</Algorithm>
+	</BasicFB>
+</FBType>

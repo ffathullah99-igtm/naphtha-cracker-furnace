@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FBType Name="tf_1" Comment="Basic FB with empty ECC">
+	<Identification Standard="61499-2">
+	</Identification>
+	<VersionInfo Version="1.0" Author="Lenovo" Date="2021-03-12">
+	</VersionInfo>
+	<InterfaceList>
+		<EventInputs>
+			<Event Name="Init" Type="Event" Comment="">
+				<With Var="tin"/>
+			</Event>
+			<Event Name="REQ" Type="Event" Comment="">
+				<With Var="tin"/>
+			</Event>
+		</EventInputs>
+		<EventOutputs>
+			<Event Name="Inito" Type="Event" Comment="">
+				<With Var="yout"/>
+			</Event>
+			<Event Name="CNF" Type="Event" Comment="">
+				<With Var="yout"/>
+			</Event>
+		</EventOutputs>
+		<InputVars>
+			<VarDeclaration Name="tin" Type="REAL" Comment=""/>
+		</InputVars>
+		<OutputVars>
+			<VarDeclaration Name="yout" Type="REAL" Comment=""/>
+		</OutputVars>
+	</InterfaceList>
+	<BasicFB>
+		<InternalVars>
+			<VarDeclaration Name="x" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+			<VarDeclaration Name="n" Type="REAL" Comment="Internal Variable" InitialValue=""/>
+		</InternalVars>
+		<ECC>
+			<ECState Name="START" Comment="Initial State" x="550.0" y="425.0">
+			</ECState>
+			<ECState Name="Initialization" Comment="" x="1775.0" y="305.0">
+				<ECAction Algorithm="Initial" Output="Inito"/>
+			</ECState>
+			<ECState Name="Calculation" Comment="" x="1560.0" y="975.0">
+				<ECAction Algorithm="Calculate" Output="CNF"/>
+			</ECState>
+			<ECTransition Source="START" Destination="Initialization" Condition="Init" Comment="" x="1315.0" y="295.0"/>
+			<ECTransition Source="Initialization" Destination="START" Condition="1" Comment="" x="1310.0" y="455.0"/>
+			<ECTransition Source="START" Destination="Calculation" Condition="REQ" Comment="" x="1305.0" y="720.0"/>
+			<ECTransition Source="Calculation" Destination="START" Condition="1" Comment="" x="1105.0" y="930.0"/>
+		</ECC>
+		<Algorithm Name="Initial" Comment="New Algorithm">
+			<ST><![CDATA[]]></ST>
+		</Algorithm>
+		<Algorithm Name="Calculate" Comment="New Algorithm">
+			<ST><![CDATA[x:=-tin/5;
+n:=EXP(x);
+yout:=(0.4)*n;]]></ST>
+		</Algorithm>
+	</BasicFB>
+</FBType>

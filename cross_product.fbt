@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FBType Name="cross_product" Comment="Basic FB with empty ECC">
+	<Identification Standard="61499-2">
+	</Identification>
+	<VersionInfo Version="1.0" Author="Lenovo" Date="2021-04-13">
+	</VersionInfo>
+	<InterfaceList>
+		<EventInputs>
+			<Event Name="Init" Type="Event" Comment="">
+				<With Var="inx"/>
+				<With Var="iny"/>
+			</Event>
+			<Event Name="REQ" Type="Event" Comment="">
+				<With Var="inx"/>
+				<With Var="iny"/>
+			</Event>
+		</EventInputs>
+		<EventOutputs>
+			<Event Name="Inito" Type="Event" Comment="">
+				<With Var="outz"/>
+			</Event>
+			<Event Name="CNF" Type="Event" Comment="">
+				<With Var="outz"/>
+			</Event>
+		</EventOutputs>
+		<InputVars>
+			<VarDeclaration Name="inx" Type="REAL" Comment=""/>
+			<VarDeclaration Name="iny" Type="REAL" Comment=""/>
+		</InputVars>
+		<OutputVars>
+			<VarDeclaration Name="outz" Type="REAL" Comment=""/>
+		</OutputVars>
+	</InterfaceList>
+	<BasicFB>
+		<ECC>
+			<ECState Name="START" Comment="Initial State" x="550.0" y="425.0">
+			</ECState>
+			<ECState Name="initialization" Comment="" x="1500.0" y="175.0">
+				<ECAction Algorithm="Initial" Output="Inito"/>
+			</ECState>
+			<ECState Name="Calculation" Comment="" x="1425.0" y="885.0">
+				<ECAction Algorithm="Calculate" Output="CNF"/>
+			</ECState>
+			<ECTransition Source="START" Destination="initialization" Condition="Init" Comment="" x="1165.0" y="265.0"/>
+			<ECTransition Source="initialization" Destination="START" Condition="1" Comment="" x="1285.0" y="420.0"/>
+			<ECTransition Source="START" Destination="Calculation" Condition="REQ" Comment="" x="1085.0" y="745.0"/>
+			<ECTransition Source="Calculation" Destination="START" Condition="1" Comment="" x="985.0" y="1025.0"/>
+		</ECC>
+		<Algorithm Name="Initial" Comment="New Algorithm">
+			<ST><![CDATA[]]></ST>
+		</Algorithm>
+		<Algorithm Name="Calculate" Comment="New Algorithm">
+			<ST><![CDATA[outz:=inx*iny;]]></ST>
+		</Algorithm>
+	</BasicFB>
+</FBType>
