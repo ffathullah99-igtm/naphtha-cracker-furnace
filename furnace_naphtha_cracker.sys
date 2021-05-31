@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System Name="furnace_naphtha_cracker" Comment="">
+	<Identification>
+	</Identification>
+	<VersionInfo Version="1.0" Author="Lenovo" Date="2021-03-12">
+	</VersionInfo>
+	<Application Name="furnace_naphtha_crackerApp" Comment="">
+		<SubAppNetwork>
+			<FB Name="E_CYCLE" Type="E_CYCLE" Comment="" x="200.0" y="100.0">
+				<Parameter Name="DT" Value="T#1s"/>
+			</FB>
+			<FB Name="sumreal_1" Type="sumreal_1" Comment="" x="2600.0" y="0.0">
+				<Parameter Name="in1" Value="50"/>
+			</FB>
+			<FB Name="sumreal_2" Type="sumreal_2" Comment="" x="3400.0" y="0.0">
+				<Parameter Name="in1" Value="50"/>
+			</FB>
+			<FB Name="fuel_valve" Type="tf_3" Comment="" x="4200.0" y="100.0">
+			</FB>
+			<FB Name="fuel_flow" Type="sumreal_1" Comment="" x="5400.0" y="0.0">
+				<Parameter Name="in1" Value="50"/>
+			</FB>
+			<FB Name="E_CYCLE_1" Type="E_CYCLE" Comment="" x="200.0" y="2200.0">
+				<Parameter Name="DT" Value="T#1s"/>
+			</FB>
+			<FB Name="E_CTU" Type="E_CTU" Comment="" x="900.0" y="1700.0">
+				<Parameter Name="PV" Value="1"/>
+			</FB>
+			<FB Name="UINT2UINT" Type="UINT2UINT" Comment="" x="1400.0" y="1800.0">
+			</FB>
+			<FB Name="amb_variation" Type="amb_variation" Comment="" x="2100.0" y="1000.0">
+			</FB>
+			<FB Name="amb_temp_noise_1" Type="FB_RANDOM" Comment="" x="2100.0" y="2400.0">
+				<Parameter Name="SEED" Value="2"/>
+			</FB>
+			<FB Name="E_CYCLE_2" Type="E_CYCLE" Comment="" x="200.0" y="4300.0">
+				<Parameter Name="DT" Value="T#1s"/>
+			</FB>
+			<FB Name="air_press_fluc" Type="FB_RANDOM" Comment="" x="900.0" y="4300.0">
+				<Parameter Name="SEED" Value="7"/>
+			</FB>
+			<FB Name="lag_2" Type="tf_0" Comment="" x="1700.0" y="4300.0">
+			</FB>
+			<FB Name="sumreal_4" Type="sumreal_1" Comment="" x="2400.0" y="4300.0">
+				<Parameter Name="in2" Value="50"/>
+			</FB>
+			<FB Name="sumreal_5" Type="sumreal_2" Comment="" x="3200.0" y="4300.0">
+				<Parameter Name="in1" Value="50"/>
+			</FB>
+			<FB Name="air_valve" Type="tf_3" Comment="" x="3900.0" y="4300.0">
+			</FB>
+			<FB Name="sumreal_6" Type="sumreal_1" Comment="" x="4700.0" y="4300.0">
+				<Parameter Name="in2" Value="50"/>
+			</FB>
+			<FB Name="air_flow" Type="gain_10" Comment="" x="5400.0" y="4300.0">
+			</FB>
+			<FB Name="reactor1" Type="tf_2" Comment="" x="4600.0" y="2200.0">
+			</FB>
+			<FB Name="fuel_comp" Type="FB_RANDOM" Comment="" x="1500.0" y="3000.0">
+				<Parameter Name="SEED" Value="6"/>
+			</FB>
+			<FB Name="reactor2" Type="tf_0" Comment="" x="2200.0" y="3000.0">
+			</FB>
+			<FB Name="sumreal_7" Type="sumreal_2" Comment="" x="3200.0" y="3400.0">
+			</FB>
+			<FB Name="exce_o2" Type="tf_2" Comment="" x="4700.0" y="3500.0">
+			</FB>
+			<FB Name="tp_delay" Type="E_DELAY" Comment="" x="4200.0" y="800.0">
+				<Parameter Name="DT" Value="T#2s"/>
+			</FB>
+			<FB Name="furnace" Type="tf_2" Comment="" x="4800.0" y="900.0">
+			</FB>
+			<FB Name="tp_delay2" Type="E_DELAY" Comment="" x="4000.0" y="3500.0">
+				<Parameter Name="DT" Value="T#2s"/>
+			</FB>
+			<FB Name="sumreal_8" Type="sumreal_4" Comment="" x="5600.0" y="2100.0">
+			</FB>
+			<FB Name="tp_delay1" Type="E_DELAY" Comment="" x="6100.0" y="1400.0">
+				<Parameter Name="DT" Value="T#2s"/>
+			</FB>
+			<FB Name="reactor" Type="tf_2" Comment="" x="6700.0" y="1400.0">
+			</FB>
+			<FB Name="Product2" Type="cross_product" Comment="" x="7400.0" y="3400.0">
+			</FB>
+			<FB Name="Gain2" Type="gain_min1" Comment="" x="8300.0" y="3500.0">
+			</FB>
+			<FB Name="Product1" Type="cross_product" Comment="" x="7400.0" y="2200.0">
+			</FB>
+			<FB Name="Gain1" Type="gain_min1" Comment="" x="8300.0" y="2300.0">
+			</FB>
+			<FB Name="sumreal_9" Type="sumreal_1" Comment="" x="9400.0" y="2800.0">
+			</FB>
+			<FB Name="E_CYCLE_3" Type="E_CYCLE" Comment="" x="7300.0" y="500.0">
+				<Parameter Name="DT" Value="T#1s"/>
+			</FB>
+			<FB Name="furtemp_noise" Type="FB_RANDOM" Comment="" x="8100.0" y="500.0">
+				<Parameter Name="SEED" Value="2"/>
+			</FB>
+			<FB Name="rectemp_noise" Type="FB_RANDOM" Comment="" x="7800.0" y="1400.0">
+				<Parameter Name="SEED" Value="4"/>
+			</FB>
+			<FB Name="furnace_temp" Type="sumreal_3" Comment="" x="9100.0" y="400.0">
+				<Parameter Name="in1" Value="1200"/>
+			</FB>
+			<FB Name="reactor_temp" Type="sumreal_3" Comment="" x="9100.0" y="1300.0">
+				<Parameter Name="in1" Value="800"/>
+			</FB>
+			<FB Name="profit" Type="sumreal_1" Comment="" x="10200.0" y="2800.0">
+				<Parameter Name="in1" Value="5"/>
+			</FB>
+			<FB Name="excess_oxy" Type="sumreal_1" Comment="" x="6600.0" y="4100.0">
+				<Parameter Name="in2" Value="10"/>
+			</FB>
+			<FB Name="E_CYCLE_4" Type="E_CYCLE" Comment="" x="10280.0" y="3700.0">
+				<Parameter Name="DT" Value="T#1s"/>
+			</FB>
+			<FB Name="E_CTU_1" Type="E_CTU" Comment="" x="11020.0" y="3945.0">
+				<Parameter Name="PV" Value="1"/>
+			</FB>
+			<FB Name="UINT2UINT_1" Type="UINT2UINT" Comment="" x="11600.0" y="4100.0">
+			</FB>
+			<FB Name="fuel_press_fluc" Type="FB_RANDOM" Comment="" x="900.0" y="100.0">
+				<Parameter Name="SEED" Value="4"/>
+			</FB>
+			<FB Name="lag_1" Type="tf_0" Comment="" x="1800.0" y="100.0">
+			</FB>
+			<FB Name="sumreal_3" Type="sumreal_3" Comment="" x="3200.0" y="2200.0">
+				<Parameter Name="in3" Value="0"/>
+			</FB>
+			<FB Name="amb_temp" Type="sumreal_1" Comment="" x="3900.0" y="1700.0">
+				<Parameter Name="in2" Value="70"/>
+			</FB>
+			<FB Name="cum_profit" Type="integrator_1" Comment="" x="11300.0" y="2800.0">
+			</FB>
+			<EventConnections>
+				<Connection Source="sumreal_2.CNF" Destination="fuel_valve.REQ" Comment="" dx1="140.0"/>
+				<Connection Source="sumreal_1.CNF" Destination="sumreal_2.REQ" Comment=""/>
+				<Connection Source="fuel_valve.CNF" Destination="fuel_flow.REQ" Comment="" dx1="100.0"/>
+				<Connection Source="E_CYCLE_1.EO" Destination="E_CTU.CU" Comment="" dx1="135.0"/>
+				<Connection Source="E_CTU.CUO" Destination="UINT2UINT.REQ" Comment="" dx1="80.0"/>
+				<Connection Source="UINT2UINT.CNF" Destination="amb_variation.REQ" Comment="" dx1="90.0"/>
+				<Connection Source="E_CYCLE_1.EO" Destination="amb_temp_noise_1.REQ" Comment="" dx1="135.0"/>
+				<Connection Source="E_CYCLE_2.EO" Destination="air_press_fluc.REQ" Comment="" dx1="135.0"/>
+				<Connection Source="air_press_fluc.CNF" Destination="lag_2.REQ" Comment=""/>
+				<Connection Source="lag_2.CNF" Destination="sumreal_4.REQ" Comment=""/>
+				<Connection Source="sumreal_4.CNF" Destination="sumreal_5.REQ" Comment=""/>
+				<Connection Source="sumreal_5.CNF" Destination="air_valve.REQ" Comment=""/>
+				<Connection Source="air_valve.CNF" Destination="sumreal_6.REQ" Comment=""/>
+				<Connection Source="sumreal_6.CNF" Destination="air_flow.REQ" Comment=""/>
+				<Connection Source="E_CYCLE_1.EO" Destination="fuel_comp.REQ" Comment="" dx1="85.0"/>
+				<Connection Source="fuel_comp.CNF" Destination="reactor2.REQ" Comment=""/>
+				<Connection Source="sumreal_5.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="60.0" dy="-350.0"/>
+				<Connection Source="sumreal_2.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="250.0" dy="1150.0"/>
+				<Connection Source="sumreal_2.CNF" Destination="tp_delay.START" Comment="" dx1="140.0"/>
+				<Connection Source="tp_delay.EO" Destination="furnace.REQ" Comment="" dx1="85.0"/>
+				<Connection Source="sumreal_7.CNF" Destination="tp_delay2.START" Comment=""/>
+				<Connection Source="tp_delay2.EO" Destination="exce_o2.REQ" Comment="" dx1="115.0"/>
+				<Connection Source="furnace.CNF" Destination="sumreal_8.REQ" Comment="" dx1="240.0"/>
+				<Connection Source="reactor1.CNF" Destination="sumreal_8.REQ" Comment="" dx1="440.0"/>
+				<Connection Source="exce_o2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="140.0"/>
+				<Connection Source="reactor2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="2840.0"/>
+				<Connection Source="sumreal_8.CNF" Destination="tp_delay1.START" Comment="" dx1="60.0" dx2="60.0" dy="-500.0"/>
+				<Connection Source="tp_delay1.EO" Destination="reactor.REQ" Comment="" dx1="85.0"/>
+				<Connection Source="exce_o2.CNF" Destination="Product2.REQ" Comment="" dx1="250.0"/>
+				<Connection Source="Product2.CNF" Destination="Gain2.REQ" Comment="" dx1="100.0"/>
+				<Connection Source="Product1.CNF" Destination="Gain1.REQ" Comment="" dx1="100.0"/>
+				<Connection Source="Gain1.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+				<Connection Source="Gain2.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+				<Connection Source="E_CYCLE_3.EO" Destination="furtemp_noise.REQ" Comment="" dx1="340.0"/>
+				<Connection Source="furnace.CNF" Destination="furnace_temp.REQ" Comment="" dx1="3530.0"/>
+				<Connection Source="furtemp_noise.CNF" Destination="furnace_temp.REQ" Comment="" dx1="225.0"/>
+				<Connection Source="E_CYCLE_3.EO" Destination="rectemp_noise.REQ" Comment="" dx1="60.0" dx2="60.0" dy="500.0"/>
+				<Connection Source="rectemp_noise.CNF" Destination="reactor_temp.REQ" Comment="" dx1="375.0"/>
+				<Connection Source="reactor.CNF" Destination="Product1.REQ" Comment="" dx1="100.0"/>
+				<Connection Source="reactor.CNF" Destination="reactor_temp.REQ" Comment="" dx1="255.0"/>
+				<Connection Source="sumreal_9.CNF" Destination="profit.REQ" Comment=""/>
+				<Connection Source="exce_o2.CNF" Destination="excess_oxy.REQ" Comment="" dx1="1180.0"/>
+				<Connection Source="E_CTU_1.CUO" Destination="UINT2UINT_1.REQ" Comment="" dx1="80.0"/>
+				<Connection Source="E_CYCLE_4.EO" Destination="E_CTU_1.CU" Comment="" dx1="150.0"/>
+				<Connection Source="lag_1.CNF" Destination="sumreal_1.REQ" Comment="" dx1="150.0"/>
+				<Connection Source="E_CYCLE.EO" Destination="fuel_press_fluc.REQ" Comment="" dx1="215.0"/>
+				<Connection Source="fuel_press_fluc.CNF" Destination="lag_1.REQ" Comment=""/>
+				<Connection Source="sumreal_3.CNF" Destination="reactor1.REQ" Comment=""/>
+				<Connection Source="amb_temp_noise_1.CNF" Destination="sumreal_3.REQ" Comment="" dx1="305.0"/>
+				<Connection Source="amb_variation.CNF" Destination="sumreal_3.REQ" Comment="" dx1="200.0"/>
+				<Connection Source="sumreal_3.CNF" Destination="amb_temp.REQ" Comment="" dx1="90.0"/>
+				<Connection Source="profit.CNF" Destination="cum_profit.REQ" Comment=""/>
+				<Connection Source="UINT2UINT_1.CNF" Destination="cum_profit.REQ" Comment="" dx1="60.0" dx2="255.0" dy="-585.0"/>
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="sumreal_1.out1" Destination="sumreal_2.in2" Comment="" dx1="140.0"/>
+				<Connection Source="sumreal_2.out2" Destination="fuel_valve.tin" Comment="" dx1="220.0"/>
+				<Connection Source="fuel_valve.yout" Destination="fuel_flow.in2" Comment=""/>
+				<Connection Source="E_CTU.CV" Destination="UINT2UINT.IN" Comment="" dx1="80.0"/>
+				<Connection Source="UINT2UINT.OUT" Destination="amb_variation.t" Comment="" dx1="90.0"/>
+				<Connection Source="air_press_fluc.VAL" Destination="lag_2.tin" Comment=""/>
+				<Connection Source="lag_2.yout" Destination="sumreal_4.in1" Comment=""/>
+				<Connection Source="sumreal_4.out1" Destination="sumreal_5.in2" Comment="" dx1="140.0"/>
+				<Connection Source="sumreal_5.out2" Destination="air_valve.tin" Comment=""/>
+				<Connection Source="air_valve.yout" Destination="sumreal_6.in1" Comment=""/>
+				<Connection Source="sumreal_6.out1" Destination="air_flow.in_10" Comment=""/>
+				<Connection Source="fuel_comp.VAL" Destination="reactor2.tin" Comment=""/>
+				<Connection Source="sumreal_5.out2" Destination="sumreal_7.in2" Comment="" dx1="60.0" dx2="60.0" dy="-300.0"/>
+				<Connection Source="sumreal_2.out2" Destination="sumreal_7.in1" Comment="" dx1="60.0" dx2="290.0" dy="945.0"/>
+				<Connection Source="sumreal_7.out2" Destination="exce_o2.tin" Comment="" dx1="140.0"/>
+				<Connection Source="sumreal_2.out2" Destination="furnace.tin" Comment="" dx1="110.0"/>
+				<Connection Source="furnace.yout" Destination="sumreal_8.in1" Comment="" dx1="240.0"/>
+				<Connection Source="reactor1.yout" Destination="sumreal_8.in2" Comment=""/>
+				<Connection Source="exce_o2.yout" Destination="sumreal_8.in4" Comment="" dx1="140.0"/>
+				<Connection Source="reactor2.yout" Destination="sumreal_8.in3" Comment="" dx1="2840.0"/>
+				<Connection Source="sumreal_8.out4" Destination="reactor.tin" Comment="" dx1="390.0"/>
+				<Connection Source="exce_o2.yout" Destination="Product2.inx" Comment="" dx1="250.0"/>
+				<Connection Source="exce_o2.yout" Destination="Product2.iny" Comment=""/>
+				<Connection Source="Product2.outz" Destination="Gain2.in_min1" Comment="" dx1="100.0"/>
+				<Connection Source="Product1.outz" Destination="Gain1.in_min1" Comment="" dx1="100.0"/>
+				<Connection Source="reactor.yout" Destination="Product1.inx" Comment="" dx1="100.0"/>
+				<Connection Source="reactor.yout" Destination="Product1.iny" Comment="" dx1="100.0"/>
+				<Connection Source="Gain2.out_min1" Destination="sumreal_9.in2" Comment="" dx1="90.0"/>
+				<Connection Source="Gain1.out_min1" Destination="sumreal_9.in1" Comment="" dx1="105.0"/>
+				<Connection Source="furtemp_noise.VAL" Destination="furnace_temp.in2" Comment=""/>
+				<Connection Source="furnace.yout" Destination="furnace_temp.in3" Comment="" dx1="150.0"/>
+				<Connection Source="rectemp_noise.VAL" Destination="reactor_temp.in2" Comment=""/>
+				<Connection Source="reactor.yout" Destination="reactor_temp.in3" Comment="" dx1="305.0"/>
+				<Connection Source="sumreal_9.out1" Destination="profit.in2" Comment="" dx1="140.0"/>
+				<Connection Source="exce_o2.yout" Destination="excess_oxy.in1" Comment="" dx1="1110.0"/>
+				<Connection Source="E_CTU_1.CV" Destination="UINT2UINT_1.IN" Comment="" dx1="80.0"/>
+				<Connection Source="lag_1.yout" Destination="sumreal_1.in2" Comment=""/>
+				<Connection Source="fuel_press_fluc.VAL" Destination="lag_1.tin" Comment=""/>
+				<Connection Source="sumreal_3.out3" Destination="reactor1.tin" Comment=""/>
+				<Connection Source="amb_temp_noise_1.VAL" Destination="sumreal_3.in2" Comment="" dx1="245.0"/>
+				<Connection Source="amb_variation.Out_sinewave" Destination="sumreal_3.in1" Comment="" dx1="120.0"/>
+				<Connection Source="sumreal_3.out3" Destination="amb_temp.in1" Comment="" dx1="90.0"/>
+				<Connection Source="UINT2UINT_1.OUT" Destination="cum_profit.inputx" Comment="" dx1="60.0" dx2="60.0" dy="-900.0"/>
+				<Connection Source="profit.out1" Destination="cum_profit.integ" Comment="" dx1="290.0"/>
+			</DataConnections>
+		</SubAppNetwork>
+	</Application>
+	<Device Name="FORTE_PC" Type="FORTE_PC" Comment="" x="1430.0" y="1435.0">
+		<Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+		<Attribute Name="Profile" Type="STRING" Value="HOLOBLOC" Comment="device profile"/>
+		<Attribute Name="Color" Type="STRING" Value="255,190,111" Comment="color"/>
+		<Resource Name="EMB_RES" Type="EMB_RES" Comment="" x="0.0" y="0.0">
+			<FBNetwork>
+				<FB Name="fuel_valve" Type="tf_3" Comment="" x="4900.0" y="100.0">
+				</FB>
+				<FB Name="fuel_flow" Type="sumreal_1" Comment="" x="6100.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="E_CYCLE_1" Type="E_CYCLE" Comment="" x="900.0" y="2200.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="E_CTU" Type="E_CTU" Comment="" x="1600.0" y="1700.0">
+					<Parameter Name="PV" Value="1"/>
+				</FB>
+				<FB Name="UINT2UINT" Type="UINT2UINT" Comment="" x="2100.0" y="1800.0">
+				</FB>
+				<FB Name="amb_variation" Type="amb_variation" Comment="" x="2800.0" y="1300.0">
+				</FB>
+				<FB Name="amb_temp_noise_1" Type="FB_RANDOM" Comment="" x="2800.0" y="2400.0">
+					<Parameter Name="SEED" Value="2"/>
+				</FB>
+				<FB Name="E_CYCLE_2" Type="E_CYCLE" Comment="" x="900.0" y="4300.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="air_press_fluc" Type="FB_RANDOM" Comment="" x="1600.0" y="4300.0">
+					<Parameter Name="SEED" Value="7"/>
+				</FB>
+				<FB Name="lag_2" Type="tf_0" Comment="" x="2400.0" y="4300.0">
+				</FB>
+				<FB Name="sumreal_4" Type="sumreal_1" Comment="" x="3100.0" y="4300.0">
+					<Parameter Name="in2" Value="50"/>
+				</FB>
+				<FB Name="sumreal_5" Type="sumreal_2" Comment="" x="3900.0" y="4300.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="air_valve" Type="tf_3" Comment="" x="4600.0" y="4300.0">
+				</FB>
+				<FB Name="sumreal_6" Type="sumreal_1" Comment="" x="5400.0" y="4300.0">
+					<Parameter Name="in2" Value="50"/>
+				</FB>
+				<FB Name="air_flow" Type="gain_10" Comment="" x="6100.0" y="4300.0">
+				</FB>
+				<FB Name="reactor1" Type="tf_2" Comment="" x="5300.0" y="2200.0">
+				</FB>
+				<FB Name="fuel_comp" Type="FB_RANDOM" Comment="" x="2200.0" y="3000.0">
+					<Parameter Name="SEED" Value="6"/>
+				</FB>
+				<FB Name="reactor2" Type="tf_0" Comment="" x="2900.0" y="3000.0">
+				</FB>
+				<FB Name="sumreal_7" Type="sumreal_2" Comment="" x="3900.0" y="3400.0">
+				</FB>
+				<FB Name="exce_o2" Type="tf_2" Comment="" x="5400.0" y="3500.0">
+				</FB>
+				<FB Name="tp_delay" Type="E_DELAY" Comment="" x="4900.0" y="800.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="furnace" Type="tf_2" Comment="" x="5500.0" y="900.0">
+				</FB>
+				<FB Name="tp_delay2" Type="E_DELAY" Comment="" x="4700.0" y="3500.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="sumreal_8" Type="sumreal_4" Comment="" x="6300.0" y="2100.0">
+				</FB>
+				<FB Name="tp_delay1" Type="E_DELAY" Comment="" x="6800.0" y="1400.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="reactor" Type="tf_2" Comment="" x="7400.0" y="1400.0">
+				</FB>
+				<FB Name="Product2" Type="cross_product" Comment="" x="8100.0" y="3400.0">
+				</FB>
+				<FB Name="Gain2" Type="gain_min1" Comment="" x="9000.0" y="3500.0">
+				</FB>
+				<FB Name="Product1" Type="cross_product" Comment="" x="8100.0" y="2200.0">
+				</FB>
+				<FB Name="Gain1" Type="gain_min1" Comment="" x="9000.0" y="2300.0">
+				</FB>
+				<FB Name="sumreal_9" Type="sumreal_1" Comment="" x="10100.0" y="2800.0">
+				</FB>
+				<FB Name="E_CYCLE_3" Type="E_CYCLE" Comment="" x="8000.0" y="500.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="furtemp_noise" Type="FB_RANDOM" Comment="" x="8800.0" y="500.0">
+					<Parameter Name="SEED" Value="2"/>
+				</FB>
+				<FB Name="rectemp_noise" Type="FB_RANDOM" Comment="" x="8500.0" y="1400.0">
+					<Parameter Name="SEED" Value="4"/>
+				</FB>
+				<FB Name="furnace_temp" Type="sumreal_3" Comment="" x="9800.0" y="400.0">
+					<Parameter Name="in1" Value="1200"/>
+				</FB>
+				<FB Name="reactor_temp" Type="sumreal_3" Comment="" x="9800.0" y="1300.0">
+					<Parameter Name="in1" Value="800"/>
+				</FB>
+				<FB Name="profit" Type="sumreal_1" Comment="" x="10900.0" y="2800.0">
+					<Parameter Name="in1" Value="5"/>
+				</FB>
+				<FB Name="excess_oxy" Type="sumreal_1" Comment="" x="7300.0" y="4100.0">
+					<Parameter Name="in2" Value="10"/>
+				</FB>
+				<FB Name="E_CYCLE_4" Type="E_CYCLE" Comment="" x="10980.0" y="3700.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="E_CTU_1" Type="E_CTU" Comment="" x="11720.0" y="3945.0">
+					<Parameter Name="PV" Value="1"/>
+				</FB>
+				<FB Name="UINT2UINT_1" Type="UINT2UINT" Comment="" x="12300.0" y="4100.0">
+				</FB>
+				<FB Name="E_CYCLE" Type="E_CYCLE" Comment="" x="900.0" y="100.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="sumreal_1" Type="sumreal_1" Comment="" x="3300.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="sumreal_2" Type="sumreal_2" Comment="" x="4100.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="fuel_valve" Type="tf_3" Comment="" x="4900.0" y="100.0">
+				</FB>
+				<FB Name="fuel_flow" Type="sumreal_1" Comment="" x="6100.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="E_CYCLE_1" Type="E_CYCLE" Comment="" x="900.0" y="2200.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="E_CTU" Type="E_CTU" Comment="" x="1600.0" y="1700.0">
+					<Parameter Name="PV" Value="1"/>
+				</FB>
+				<FB Name="UINT2UINT" Type="UINT2UINT" Comment="" x="2100.0" y="1800.0">
+				</FB>
+				<FB Name="amb_variation" Type="amb_variation" Comment="" x="2800.0" y="1300.0">
+				</FB>
+				<FB Name="amb_temp_noise_1" Type="FB_RANDOM" Comment="" x="2800.0" y="2400.0">
+					<Parameter Name="SEED" Value="2"/>
+				</FB>
+				<FB Name="E_CYCLE_2" Type="E_CYCLE" Comment="" x="900.0" y="4300.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="air_press_fluc" Type="FB_RANDOM" Comment="" x="1600.0" y="4300.0">
+					<Parameter Name="SEED" Value="7"/>
+				</FB>
+				<FB Name="lag_2" Type="tf_0" Comment="" x="2400.0" y="4300.0">
+				</FB>
+				<FB Name="sumreal_4" Type="sumreal_1" Comment="" x="3100.0" y="4300.0">
+					<Parameter Name="in2" Value="50"/>
+				</FB>
+				<FB Name="sumreal_5" Type="sumreal_2" Comment="" x="3900.0" y="4300.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="air_valve" Type="tf_3" Comment="" x="4600.0" y="4300.0">
+				</FB>
+				<FB Name="sumreal_6" Type="sumreal_1" Comment="" x="5400.0" y="4300.0">
+					<Parameter Name="in2" Value="50"/>
+				</FB>
+				<FB Name="air_flow" Type="gain_10" Comment="" x="6100.0" y="4300.0">
+				</FB>
+				<FB Name="reactor1" Type="tf_2" Comment="" x="5300.0" y="2200.0">
+				</FB>
+				<FB Name="fuel_comp" Type="FB_RANDOM" Comment="" x="2200.0" y="3000.0">
+					<Parameter Name="SEED" Value="6"/>
+				</FB>
+				<FB Name="reactor2" Type="tf_0" Comment="" x="2900.0" y="3000.0">
+				</FB>
+				<FB Name="sumreal_7" Type="sumreal_2" Comment="" x="3900.0" y="3400.0">
+				</FB>
+				<FB Name="exce_o2" Type="tf_2" Comment="" x="5400.0" y="3500.0">
+				</FB>
+				<FB Name="tp_delay" Type="E_DELAY" Comment="" x="4900.0" y="800.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="furnace" Type="tf_2" Comment="" x="5500.0" y="900.0">
+				</FB>
+				<FB Name="tp_delay2" Type="E_DELAY" Comment="" x="4700.0" y="3500.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="sumreal_8" Type="sumreal_4" Comment="" x="6300.0" y="2100.0">
+				</FB>
+				<FB Name="tp_delay1" Type="E_DELAY" Comment="" x="6800.0" y="1400.0">
+					<Parameter Name="DT" Value="T#2s"/>
+				</FB>
+				<FB Name="reactor" Type="tf_2" Comment="" x="7400.0" y="1400.0">
+				</FB>
+				<FB Name="Product2" Type="cross_product" Comment="" x="8100.0" y="3400.0">
+				</FB>
+				<FB Name="Gain2" Type="gain_min1" Comment="" x="9000.0" y="3500.0">
+				</FB>
+				<FB Name="Product1" Type="cross_product" Comment="" x="8100.0" y="2200.0">
+				</FB>
+				<FB Name="Gain1" Type="gain_min1" Comment="" x="9000.0" y="2300.0">
+				</FB>
+				<FB Name="sumreal_9" Type="sumreal_1" Comment="" x="10100.0" y="2800.0">
+				</FB>
+				<FB Name="E_CYCLE_3" Type="E_CYCLE" Comment="" x="8000.0" y="500.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="furtemp_noise" Type="FB_RANDOM" Comment="" x="8800.0" y="500.0">
+					<Parameter Name="SEED" Value="2"/>
+				</FB>
+				<FB Name="rectemp_noise" Type="FB_RANDOM" Comment="" x="8500.0" y="1400.0">
+					<Parameter Name="SEED" Value="4"/>
+				</FB>
+				<FB Name="furnace_temp" Type="sumreal_3" Comment="" x="9800.0" y="400.0">
+					<Parameter Name="in1" Value="1200"/>
+				</FB>
+				<FB Name="reactor_temp" Type="sumreal_3" Comment="" x="9800.0" y="1300.0">
+					<Parameter Name="in1" Value="800"/>
+				</FB>
+				<FB Name="profit" Type="sumreal_1" Comment="" x="10900.0" y="2800.0">
+					<Parameter Name="in1" Value="5"/>
+				</FB>
+				<FB Name="excess_oxy" Type="sumreal_1" Comment="" x="8100.0" y="4200.0">
+					<Parameter Name="in2" Value="10"/>
+				</FB>
+				<FB Name="E_CYCLE_4" Type="E_CYCLE" Comment="" x="10980.0" y="3700.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<FB Name="E_CTU_1" Type="E_CTU" Comment="" x="11720.0" y="3945.0">
+					<Parameter Name="PV" Value="1"/>
+				</FB>
+				<FB Name="UINT2UINT_1" Type="UINT2UINT" Comment="" x="12300.0" y="4100.0">
+				</FB>
+				<FB Name="fuel_press_fluc" Type="FB_RANDOM" Comment="" x="1600.0" y="100.0">
+					<Parameter Name="SEED" Value="4"/>
+				</FB>
+				<FB Name="lag_1" Type="tf_0" Comment="" x="2500.0" y="100.0">
+				</FB>
+				<FB Name="sumreal_3" Type="sumreal_3" Comment="" x="3900.0" y="2200.0">
+					<Parameter Name="in3" Value="0"/>
+				</FB>
+				<FB Name="amb_temp" Type="sumreal_1" Comment="" x="4600.0" y="1700.0">
+					<Parameter Name="in2" Value="70"/>
+				</FB>
+				<FB Name="cum_profit" Type="integrator_1" Comment="" x="12000.0" y="2800.0">
+				</FB>
+				<FB Name="sumreal_2" Type="sumreal_2" Comment="" x="4100.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="sumreal_1" Type="sumreal_1" Comment="" x="3300.0" y="0.0">
+					<Parameter Name="in1" Value="50"/>
+				</FB>
+				<FB Name="E_CYCLE" Type="E_CYCLE" Comment="" x="900.0" y="100.0">
+					<Parameter Name="DT" Value="T#1s"/>
+				</FB>
+				<EventConnections>
+					<Connection Source="fuel_valve.CNF" Destination="fuel_flow.REQ" Comment="" dx1="350.0"/>
+					<Connection Source="E_CYCLE_1.EO" Destination="E_CTU.CU" Comment="" dx1="135.0"/>
+					<Connection Source="E_CTU.CUO" Destination="UINT2UINT.REQ" Comment="" dx1="80.0"/>
+					<Connection Source="UINT2UINT.CNF" Destination="amb_variation.REQ" Comment="" dx1="90.0"/>
+					<Connection Source="E_CYCLE_1.EO" Destination="amb_temp_noise_1.REQ" Comment="" dx1="780.0"/>
+					<Connection Source="E_CYCLE_2.EO" Destination="air_press_fluc.REQ" Comment="" dx1="160.0"/>
+					<Connection Source="air_press_fluc.CNF" Destination="lag_2.REQ" Comment=""/>
+					<Connection Source="lag_2.CNF" Destination="sumreal_4.REQ" Comment=""/>
+					<Connection Source="sumreal_4.CNF" Destination="sumreal_5.REQ" Comment=""/>
+					<Connection Source="sumreal_5.CNF" Destination="air_valve.REQ" Comment=""/>
+					<Connection Source="air_valve.CNF" Destination="sumreal_6.REQ" Comment=""/>
+					<Connection Source="sumreal_6.CNF" Destination="air_flow.REQ" Comment=""/>
+					<Connection Source="E_CYCLE_1.EO" Destination="fuel_comp.REQ" Comment="" dx1="435.0"/>
+					<Connection Source="fuel_comp.CNF" Destination="reactor2.REQ" Comment=""/>
+					<Connection Source="sumreal_5.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="60.0" dy="-450.0"/>
+					<Connection Source="tp_delay.EO" Destination="furnace.REQ" Comment="" dx1="85.0"/>
+					<Connection Source="sumreal_7.CNF" Destination="tp_delay2.START" Comment=""/>
+					<Connection Source="tp_delay2.EO" Destination="exce_o2.REQ" Comment="" dx1="135.0"/>
+					<Connection Source="furnace.CNF" Destination="sumreal_8.REQ" Comment="" dx1="150.0"/>
+					<Connection Source="reactor1.CNF" Destination="sumreal_8.REQ" Comment="" dx1="250.0"/>
+					<Connection Source="exce_o2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="200.0"/>
+					<Connection Source="reactor2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="1450.0"/>
+					<Connection Source="sumreal_8.CNF" Destination="tp_delay1.START" Comment="" dx1="60.0" dx2="60.0" dy="-400.0"/>
+					<Connection Source="tp_delay1.EO" Destination="reactor.REQ" Comment="" dx1="85.0"/>
+					<Connection Source="exce_o2.CNF" Destination="Product2.REQ" Comment="" dx1="1100.0"/>
+					<Connection Source="Product2.CNF" Destination="Gain2.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.CNF" Destination="Product1.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="Product1.CNF" Destination="Gain1.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="Gain1.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+					<Connection Source="Gain2.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+					<Connection Source="E_CYCLE_3.EO" Destination="furtemp_noise.REQ" Comment="" dx1="200.0"/>
+					<Connection Source="E_CYCLE_3.EO" Destination="rectemp_noise.REQ" Comment="" dx1="60.0" dx2="60.0" dy="500.0"/>
+					<Connection Source="furnace.CNF" Destination="furnace_temp.REQ" Comment="" dx1="1900.0"/>
+					<Connection Source="furtemp_noise.CNF" Destination="furnace_temp.REQ" Comment="" dx1="225.0"/>
+					<Connection Source="rectemp_noise.CNF" Destination="reactor_temp.REQ" Comment="" dx1="375.0"/>
+					<Connection Source="reactor.CNF" Destination="reactor_temp.REQ" Comment="" dx1="950.0"/>
+					<Connection Source="sumreal_9.CNF" Destination="profit.REQ" Comment=""/>
+					<Connection Source="exce_o2.CNF" Destination="excess_oxy.REQ" Comment="" dx1="700.0"/>
+					<Connection Source="E_CYCLE_4.EO" Destination="E_CTU_1.CU" Comment="" dx1="155.0"/>
+					<Connection Source="E_CTU_1.CUO" Destination="UINT2UINT_1.REQ" Comment="" dx1="120.0"/>
+					<Connection Source="sumreal_1.CNF" Destination="sumreal_2.REQ" Comment=""/>
+					<Connection Source="sumreal_2.CNF" Destination="fuel_valve.REQ" Comment="" dx1="140.0"/>
+					<Connection Source="fuel_valve.CNF" Destination="fuel_flow.REQ" Comment="" dx1="350.0"/>
+					<Connection Source="E_CYCLE_1.EO" Destination="E_CTU.CU" Comment="" dx1="135.0"/>
+					<Connection Source="E_CTU.CUO" Destination="UINT2UINT.REQ" Comment="" dx1="80.0"/>
+					<Connection Source="UINT2UINT.CNF" Destination="amb_variation.REQ" Comment="" dx1="90.0"/>
+					<Connection Source="E_CYCLE_1.EO" Destination="amb_temp_noise_1.REQ" Comment="" dx1="780.0"/>
+					<Connection Source="E_CYCLE_2.EO" Destination="air_press_fluc.REQ" Comment="" dx1="160.0"/>
+					<Connection Source="air_press_fluc.CNF" Destination="lag_2.REQ" Comment=""/>
+					<Connection Source="lag_2.CNF" Destination="sumreal_4.REQ" Comment=""/>
+					<Connection Source="sumreal_4.CNF" Destination="sumreal_5.REQ" Comment=""/>
+					<Connection Source="sumreal_5.CNF" Destination="air_valve.REQ" Comment=""/>
+					<Connection Source="air_valve.CNF" Destination="sumreal_6.REQ" Comment=""/>
+					<Connection Source="sumreal_6.CNF" Destination="air_flow.REQ" Comment=""/>
+					<Connection Source="E_CYCLE_1.EO" Destination="fuel_comp.REQ" Comment="" dx1="435.0"/>
+					<Connection Source="fuel_comp.CNF" Destination="reactor2.REQ" Comment=""/>
+					<Connection Source="sumreal_5.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="60.0" dy="-450.0"/>
+					<Connection Source="sumreal_2.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="60.0" dy="1700.0"/>
+					<Connection Source="sumreal_2.CNF" Destination="tp_delay.START" Comment="" dx1="140.0"/>
+					<Connection Source="tp_delay.EO" Destination="furnace.REQ" Comment="" dx1="85.0"/>
+					<Connection Source="sumreal_7.CNF" Destination="tp_delay2.START" Comment=""/>
+					<Connection Source="tp_delay2.EO" Destination="exce_o2.REQ" Comment="" dx1="135.0"/>
+					<Connection Source="furnace.CNF" Destination="sumreal_8.REQ" Comment="" dx1="150.0"/>
+					<Connection Source="reactor1.CNF" Destination="sumreal_8.REQ" Comment="" dx1="250.0"/>
+					<Connection Source="exce_o2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="200.0"/>
+					<Connection Source="reactor2.CNF" Destination="sumreal_8.REQ" Comment="" dx1="1450.0"/>
+					<Connection Source="sumreal_8.CNF" Destination="tp_delay1.START" Comment="" dx1="60.0" dx2="60.0" dy="-400.0"/>
+					<Connection Source="tp_delay1.EO" Destination="reactor.REQ" Comment="" dx1="85.0"/>
+					<Connection Source="exce_o2.CNF" Destination="Product2.REQ" Comment="" dx1="1100.0"/>
+					<Connection Source="Product2.CNF" Destination="Gain2.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.CNF" Destination="Product1.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="Product1.CNF" Destination="Gain1.REQ" Comment="" dx1="100.0"/>
+					<Connection Source="Gain1.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+					<Connection Source="Gain2.CNF" Destination="sumreal_9.REQ" Comment="" dx1="165.0"/>
+					<Connection Source="E_CYCLE_3.EO" Destination="furtemp_noise.REQ" Comment="" dx1="200.0"/>
+					<Connection Source="E_CYCLE_3.EO" Destination="rectemp_noise.REQ" Comment="" dx1="60.0" dx2="60.0" dy="500.0"/>
+					<Connection Source="furnace.CNF" Destination="furnace_temp.REQ" Comment="" dx1="3590.0"/>
+					<Connection Source="furtemp_noise.CNF" Destination="furnace_temp.REQ" Comment="" dx1="225.0"/>
+					<Connection Source="rectemp_noise.CNF" Destination="reactor_temp.REQ" Comment="" dx1="375.0"/>
+					<Connection Source="reactor.CNF" Destination="reactor_temp.REQ" Comment="" dx1="950.0"/>
+					<Connection Source="sumreal_9.CNF" Destination="profit.REQ" Comment=""/>
+					<Connection Source="exce_o2.CNF" Destination="excess_oxy.REQ" Comment="" dx1="700.0"/>
+					<Connection Source="E_CYCLE_4.EO" Destination="E_CTU_1.CU" Comment="" dx1="155.0"/>
+					<Connection Source="E_CTU_1.CUO" Destination="UINT2UINT_1.REQ" Comment="" dx1="120.0"/>
+					<Connection Source="E_CYCLE.EO" Destination="fuel_press_fluc.REQ" Comment="" dx1="170.0"/>
+					<Connection Source="fuel_press_fluc.CNF" Destination="lag_1.REQ" Comment=""/>
+					<Connection Source="lag_1.CNF" Destination="sumreal_1.REQ" Comment="" dx1="150.0"/>
+					<Connection Source="amb_temp_noise_1.CNF" Destination="sumreal_3.REQ" Comment="" dx1="240.0"/>
+					<Connection Source="amb_variation.CNF" Destination="sumreal_3.REQ" Comment="" dx1="200.0"/>
+					<Connection Source="sumreal_3.CNF" Destination="reactor1.REQ" Comment=""/>
+					<Connection Source="sumreal_3.CNF" Destination="amb_temp.REQ" Comment="" dx1="90.0"/>
+					<Connection Source="profit.CNF" Destination="cum_profit.REQ" Comment=""/>
+					<Connection Source="UINT2UINT_1.CNF" Destination="cum_profit.REQ" Comment="" dx1="60.0" dx2="60.0" dy="-600.0"/>
+					<Connection Source="START.COLD" Destination="E_CYCLE.START" Comment="" dx1="140.0"/>
+					<Connection Source="START.WARM" Destination="E_CYCLE.START" Comment=""/>
+					<Connection Source="START.COLD" Destination="E_CYCLE_1.START" Comment="" dx1="140.0"/>
+					<Connection Source="START.WARM" Destination="E_CYCLE_1.START" Comment="" dx1="140.0"/>
+					<Connection Source="START.COLD" Destination="E_CYCLE_2.START" Comment="" dx1="140.0"/>
+					<Connection Source="START.WARM" Destination="E_CYCLE_2.START" Comment="" dx1="140.0"/>
+					<Connection Source="START.COLD" Destination="E_CYCLE_4.START" Comment="" dx1="60.0"/>
+					<Connection Source="START.WARM" Destination="E_CYCLE_4.START" Comment="" dx1="60.0"/>
+					<Connection Source="START.COLD" Destination="E_CYCLE_3.START" Comment="" dx1="3690.0"/>
+					<Connection Source="START.WARM" Destination="E_CYCLE_3.START" Comment="" dx1="3690.0"/>
+					<Connection Source="sumreal_2.CNF" Destination="tp_delay.START" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_2.CNF" Destination="sumreal_7.REQ" Comment="" dx1="60.0" dx2="60.0" dy="1700.0"/>
+					<Connection Source="sumreal_2.CNF" Destination="fuel_valve.REQ" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_1.CNF" Destination="sumreal_2.REQ" Comment=""/>
+				</EventConnections>
+				<DataConnections>
+					<Connection Source="fuel_valve.yout" Destination="fuel_flow.in2" Comment=""/>
+					<Connection Source="E_CTU.CV" Destination="UINT2UINT.IN" Comment="" dx1="80.0"/>
+					<Connection Source="UINT2UINT.OUT" Destination="amb_variation.t" Comment="" dx1="90.0"/>
+					<Connection Source="air_press_fluc.VAL" Destination="lag_2.tin" Comment=""/>
+					<Connection Source="lag_2.yout" Destination="sumreal_4.in1" Comment=""/>
+					<Connection Source="sumreal_4.out1" Destination="sumreal_5.in2" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_5.out2" Destination="air_valve.tin" Comment=""/>
+					<Connection Source="air_valve.yout" Destination="sumreal_6.in1" Comment=""/>
+					<Connection Source="sumreal_6.out1" Destination="air_flow.in_10" Comment=""/>
+					<Connection Source="fuel_comp.VAL" Destination="reactor2.tin" Comment=""/>
+					<Connection Source="sumreal_5.out2" Destination="sumreal_7.in2" Comment="" dx1="60.0" dx2="60.0" dy="-400.0"/>
+					<Connection Source="sumreal_7.out2" Destination="exce_o2.tin" Comment="" dx1="490.0"/>
+					<Connection Source="furnace.yout" Destination="sumreal_8.in1" Comment="" dx1="150.0"/>
+					<Connection Source="reactor1.yout" Destination="sumreal_8.in2" Comment=""/>
+					<Connection Source="reactor2.yout" Destination="sumreal_8.in3" Comment="" dx1="1450.0"/>
+					<Connection Source="exce_o2.yout" Destination="sumreal_8.in4" Comment="" dx1="200.0"/>
+					<Connection Source="sumreal_8.out4" Destination="reactor.tin" Comment="" dx1="290.0"/>
+					<Connection Source="exce_o2.yout" Destination="Product2.inx" Comment="" dx1="1100.0"/>
+					<Connection Source="exce_o2.yout" Destination="Product2.iny" Comment=""/>
+					<Connection Source="Product2.outz" Destination="Gain2.in_min1" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.yout" Destination="Product1.inx" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.yout" Destination="Product1.iny" Comment="" dx1="100.0"/>
+					<Connection Source="Product1.outz" Destination="Gain1.in_min1" Comment="" dx1="100.0"/>
+					<Connection Source="Gain1.out_min1" Destination="sumreal_9.in1" Comment="" dx1="165.0"/>
+					<Connection Source="Gain2.out_min1" Destination="sumreal_9.in2" Comment="" dx1="165.0"/>
+					<Connection Source="furtemp_noise.VAL" Destination="furnace_temp.in2" Comment=""/>
+					<Connection Source="furnace.yout" Destination="furnace_temp.in3" Comment="" dx1="1900.0"/>
+					<Connection Source="rectemp_noise.VAL" Destination="reactor_temp.in2" Comment=""/>
+					<Connection Source="reactor.yout" Destination="reactor_temp.in3" Comment="" dx1="950.0"/>
+					<Connection Source="sumreal_9.out1" Destination="profit.in2" Comment="" dx1="140.0"/>
+					<Connection Source="exce_o2.yout" Destination="excess_oxy.in1" Comment="" dx1="700.0"/>
+					<Connection Source="E_CTU_1.CV" Destination="UINT2UINT_1.IN" Comment="" dx1="120.0"/>
+					<Connection Source="sumreal_1.out1" Destination="sumreal_2.in2" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_2.out2" Destination="fuel_valve.tin" Comment="" dx1="140.0"/>
+					<Connection Source="fuel_valve.yout" Destination="fuel_flow.in2" Comment=""/>
+					<Connection Source="E_CTU.CV" Destination="UINT2UINT.IN" Comment="" dx1="80.0"/>
+					<Connection Source="UINT2UINT.OUT" Destination="amb_variation.t" Comment="" dx1="90.0"/>
+					<Connection Source="air_press_fluc.VAL" Destination="lag_2.tin" Comment=""/>
+					<Connection Source="lag_2.yout" Destination="sumreal_4.in1" Comment=""/>
+					<Connection Source="sumreal_4.out1" Destination="sumreal_5.in2" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_5.out2" Destination="air_valve.tin" Comment=""/>
+					<Connection Source="air_valve.yout" Destination="sumreal_6.in1" Comment=""/>
+					<Connection Source="sumreal_6.out1" Destination="air_flow.in_10" Comment=""/>
+					<Connection Source="fuel_comp.VAL" Destination="reactor2.tin" Comment=""/>
+					<Connection Source="sumreal_2.out2" Destination="sumreal_7.in1" Comment="" dx1="60.0" dx2="60.0" dy="1700.0"/>
+					<Connection Source="sumreal_5.out2" Destination="sumreal_7.in2" Comment="" dx1="60.0" dx2="60.0" dy="-400.0"/>
+					<Connection Source="sumreal_7.out2" Destination="exce_o2.tin" Comment="" dx1="490.0"/>
+					<Connection Source="sumreal_2.out2" Destination="furnace.tin" Comment="" dx1="440.0"/>
+					<Connection Source="furnace.yout" Destination="sumreal_8.in1" Comment="" dx1="150.0"/>
+					<Connection Source="reactor1.yout" Destination="sumreal_8.in2" Comment=""/>
+					<Connection Source="reactor2.yout" Destination="sumreal_8.in3" Comment="" dx1="1450.0"/>
+					<Connection Source="exce_o2.yout" Destination="sumreal_8.in4" Comment="" dx1="200.0"/>
+					<Connection Source="sumreal_8.out4" Destination="reactor.tin" Comment="" dx1="290.0"/>
+					<Connection Source="exce_o2.yout" Destination="Product2.inx" Comment="" dx1="1100.0"/>
+					<Connection Source="exce_o2.yout" Destination="Product2.iny" Comment=""/>
+					<Connection Source="Product2.outz" Destination="Gain2.in_min1" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.yout" Destination="Product1.inx" Comment="" dx1="100.0"/>
+					<Connection Source="reactor.yout" Destination="Product1.iny" Comment="" dx1="100.0"/>
+					<Connection Source="Product1.outz" Destination="Gain1.in_min1" Comment="" dx1="100.0"/>
+					<Connection Source="Gain1.out_min1" Destination="sumreal_9.in1" Comment="" dx1="165.0"/>
+					<Connection Source="Gain2.out_min1" Destination="sumreal_9.in2" Comment="" dx1="165.0"/>
+					<Connection Source="furtemp_noise.VAL" Destination="furnace_temp.in2" Comment=""/>
+					<Connection Source="furnace.yout" Destination="furnace_temp.in3" Comment="" dx1="1900.0"/>
+					<Connection Source="rectemp_noise.VAL" Destination="reactor_temp.in2" Comment=""/>
+					<Connection Source="reactor.yout" Destination="reactor_temp.in3" Comment="" dx1="950.0"/>
+					<Connection Source="sumreal_9.out1" Destination="profit.in2" Comment="" dx1="140.0"/>
+					<Connection Source="exce_o2.yout" Destination="excess_oxy.in1" Comment="" dx1="700.0"/>
+					<Connection Source="E_CTU_1.CV" Destination="UINT2UINT_1.IN" Comment="" dx1="120.0"/>
+					<Connection Source="fuel_press_fluc.VAL" Destination="lag_1.tin" Comment=""/>
+					<Connection Source="lag_1.yout" Destination="sumreal_1.in2" Comment=""/>
+					<Connection Source="amb_variation.Out_sinewave" Destination="sumreal_3.in1" Comment="" dx1="200.0"/>
+					<Connection Source="amb_temp_noise_1.VAL" Destination="sumreal_3.in2" Comment="" dx1="240.0"/>
+					<Connection Source="sumreal_3.out3" Destination="reactor1.tin" Comment=""/>
+					<Connection Source="sumreal_3.out3" Destination="amb_temp.in1" Comment="" dx1="90.0"/>
+					<Connection Source="UINT2UINT_1.OUT" Destination="cum_profit.inputx" Comment="" dx1="60.0" dx2="60.0" dy="-600.0"/>
+					<Connection Source="profit.out1" Destination="cum_profit.integ" Comment="" dx1="290.0"/>
+					<Connection Source="sumreal_2.out2" Destination="furnace.tin" Comment="" dx1="440.0"/>
+					<Connection Source="sumreal_2.out2" Destination="sumreal_7.in1" Comment="" dx1="60.0" dx2="60.0" dy="1700.0"/>
+					<Connection Source="sumreal_2.out2" Destination="fuel_valve.tin" Comment="" dx1="140.0"/>
+					<Connection Source="sumreal_1.out1" Destination="sumreal_2.in2" Comment="" dx1="140.0"/>
+				</DataConnections>
+			</FBNetwork>
+		</Resource>
+	</Device>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_valve" To="FORTE_PC.EMB_RES.fuel_valve"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_flow" To="FORTE_PC.EMB_RES.fuel_flow"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_1" To="FORTE_PC.EMB_RES.E_CYCLE_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CTU" To="FORTE_PC.EMB_RES.E_CTU"/>
+	<Mapping From="furnace_naphtha_crackerApp.UINT2UINT" To="FORTE_PC.EMB_RES.UINT2UINT"/>
+	<Mapping From="furnace_naphtha_crackerApp.amb_variation" To="FORTE_PC.EMB_RES.amb_variation"/>
+	<Mapping From="furnace_naphtha_crackerApp.amb_temp_noise_1" To="FORTE_PC.EMB_RES.amb_temp_noise_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_2" To="FORTE_PC.EMB_RES.E_CYCLE_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_press_fluc" To="FORTE_PC.EMB_RES.air_press_fluc"/>
+	<Mapping From="furnace_naphtha_crackerApp.lag_2" To="FORTE_PC.EMB_RES.lag_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_4" To="FORTE_PC.EMB_RES.sumreal_4"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_5" To="FORTE_PC.EMB_RES.sumreal_5"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_valve" To="FORTE_PC.EMB_RES.air_valve"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_6" To="FORTE_PC.EMB_RES.sumreal_6"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_flow" To="FORTE_PC.EMB_RES.air_flow"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor1" To="FORTE_PC.EMB_RES.reactor1"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_comp" To="FORTE_PC.EMB_RES.fuel_comp"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor2" To="FORTE_PC.EMB_RES.reactor2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_7" To="FORTE_PC.EMB_RES.sumreal_7"/>
+	<Mapping From="furnace_naphtha_crackerApp.exce_o2" To="FORTE_PC.EMB_RES.exce_o2"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay" To="FORTE_PC.EMB_RES.tp_delay"/>
+	<Mapping From="furnace_naphtha_crackerApp.furnace" To="FORTE_PC.EMB_RES.furnace"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay2" To="FORTE_PC.EMB_RES.tp_delay2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_8" To="FORTE_PC.EMB_RES.sumreal_8"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay1" To="FORTE_PC.EMB_RES.tp_delay1"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor" To="FORTE_PC.EMB_RES.reactor"/>
+	<Mapping From="furnace_naphtha_crackerApp.Product2" To="FORTE_PC.EMB_RES.Product2"/>
+	<Mapping From="furnace_naphtha_crackerApp.Gain2" To="FORTE_PC.EMB_RES.Gain2"/>
+	<Mapping From="furnace_naphtha_crackerApp.Product1" To="FORTE_PC.EMB_RES.Product1"/>
+	<Mapping From="furnace_naphtha_crackerApp.Gain1" To="FORTE_PC.EMB_RES.Gain1"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_9" To="FORTE_PC.EMB_RES.sumreal_9"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_3" To="FORTE_PC.EMB_RES.E_CYCLE_3"/>
+	<Mapping From="furnace_naphtha_crackerApp.furtemp_noise" To="FORTE_PC.EMB_RES.furtemp_noise"/>
+	<Mapping From="furnace_naphtha_crackerApp.rectemp_noise" To="FORTE_PC.EMB_RES.rectemp_noise"/>
+	<Mapping From="furnace_naphtha_crackerApp.furnace_temp" To="FORTE_PC.EMB_RES.furnace_temp"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor_temp" To="FORTE_PC.EMB_RES.reactor_temp"/>
+	<Mapping From="furnace_naphtha_crackerApp.profit" To="FORTE_PC.EMB_RES.profit"/>
+	<Mapping From="furnace_naphtha_crackerApp.excess_oxy" To="FORTE_PC.EMB_RES.excess_oxy"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_4" To="FORTE_PC.EMB_RES.E_CYCLE_4"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CTU_1" To="FORTE_PC.EMB_RES.E_CTU_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.UINT2UINT_1" To="FORTE_PC.EMB_RES.UINT2UINT_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE" To="FORTE_PC.EMB_RES.E_CYCLE"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_1" To="FORTE_PC.EMB_RES.sumreal_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_2" To="FORTE_PC.EMB_RES.sumreal_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_valve" To="FORTE_PC.EMB_RES.fuel_valve"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_flow" To="FORTE_PC.EMB_RES.fuel_flow"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_1" To="FORTE_PC.EMB_RES.E_CYCLE_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CTU" To="FORTE_PC.EMB_RES.E_CTU"/>
+	<Mapping From="furnace_naphtha_crackerApp.UINT2UINT" To="FORTE_PC.EMB_RES.UINT2UINT"/>
+	<Mapping From="furnace_naphtha_crackerApp.amb_variation" To="FORTE_PC.EMB_RES.amb_variation"/>
+	<Mapping From="furnace_naphtha_crackerApp.amb_temp_noise_1" To="FORTE_PC.EMB_RES.amb_temp_noise_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_2" To="FORTE_PC.EMB_RES.E_CYCLE_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_press_fluc" To="FORTE_PC.EMB_RES.air_press_fluc"/>
+	<Mapping From="furnace_naphtha_crackerApp.lag_2" To="FORTE_PC.EMB_RES.lag_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_4" To="FORTE_PC.EMB_RES.sumreal_4"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_5" To="FORTE_PC.EMB_RES.sumreal_5"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_valve" To="FORTE_PC.EMB_RES.air_valve"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_6" To="FORTE_PC.EMB_RES.sumreal_6"/>
+	<Mapping From="furnace_naphtha_crackerApp.air_flow" To="FORTE_PC.EMB_RES.air_flow"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor1" To="FORTE_PC.EMB_RES.reactor1"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_comp" To="FORTE_PC.EMB_RES.fuel_comp"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor2" To="FORTE_PC.EMB_RES.reactor2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_7" To="FORTE_PC.EMB_RES.sumreal_7"/>
+	<Mapping From="furnace_naphtha_crackerApp.exce_o2" To="FORTE_PC.EMB_RES.exce_o2"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay" To="FORTE_PC.EMB_RES.tp_delay"/>
+	<Mapping From="furnace_naphtha_crackerApp.furnace" To="FORTE_PC.EMB_RES.furnace"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay2" To="FORTE_PC.EMB_RES.tp_delay2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_8" To="FORTE_PC.EMB_RES.sumreal_8"/>
+	<Mapping From="furnace_naphtha_crackerApp.tp_delay1" To="FORTE_PC.EMB_RES.tp_delay1"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor" To="FORTE_PC.EMB_RES.reactor"/>
+	<Mapping From="furnace_naphtha_crackerApp.Product2" To="FORTE_PC.EMB_RES.Product2"/>
+	<Mapping From="furnace_naphtha_crackerApp.Gain2" To="FORTE_PC.EMB_RES.Gain2"/>
+	<Mapping From="furnace_naphtha_crackerApp.Product1" To="FORTE_PC.EMB_RES.Product1"/>
+	<Mapping From="furnace_naphtha_crackerApp.Gain1" To="FORTE_PC.EMB_RES.Gain1"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_9" To="FORTE_PC.EMB_RES.sumreal_9"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_3" To="FORTE_PC.EMB_RES.E_CYCLE_3"/>
+	<Mapping From="furnace_naphtha_crackerApp.furtemp_noise" To="FORTE_PC.EMB_RES.furtemp_noise"/>
+	<Mapping From="furnace_naphtha_crackerApp.rectemp_noise" To="FORTE_PC.EMB_RES.rectemp_noise"/>
+	<Mapping From="furnace_naphtha_crackerApp.furnace_temp" To="FORTE_PC.EMB_RES.furnace_temp"/>
+	<Mapping From="furnace_naphtha_crackerApp.reactor_temp" To="FORTE_PC.EMB_RES.reactor_temp"/>
+	<Mapping From="furnace_naphtha_crackerApp.profit" To="FORTE_PC.EMB_RES.profit"/>
+	<Mapping From="furnace_naphtha_crackerApp.excess_oxy" To="FORTE_PC.EMB_RES.excess_oxy"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE_4" To="FORTE_PC.EMB_RES.E_CYCLE_4"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CTU_1" To="FORTE_PC.EMB_RES.E_CTU_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.UINT2UINT_1" To="FORTE_PC.EMB_RES.UINT2UINT_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.fuel_press_fluc" To="FORTE_PC.EMB_RES.fuel_press_fluc"/>
+	<Mapping From="furnace_naphtha_crackerApp.lag_1" To="FORTE_PC.EMB_RES.lag_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_3" To="FORTE_PC.EMB_RES.sumreal_3"/>
+	<Mapping From="furnace_naphtha_crackerApp.amb_temp" To="FORTE_PC.EMB_RES.amb_temp"/>
+	<Mapping From="furnace_naphtha_crackerApp.cum_profit" To="FORTE_PC.EMB_RES.cum_profit"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_2" To="FORTE_PC.EMB_RES.sumreal_2"/>
+	<Mapping From="furnace_naphtha_crackerApp.sumreal_1" To="FORTE_PC.EMB_RES.sumreal_1"/>
+	<Mapping From="furnace_naphtha_crackerApp.E_CYCLE" To="FORTE_PC.EMB_RES.E_CYCLE"/>
+	<Segment Name="Ethernet" Type="Ethernet" Comment="" x="2890.0" y="1235.0" dx1="1500.0">
+		<Attribute Name="Color" Type="STRING" Value="233,119,51" Comment="color"/>
+	</Segment>
+	<Link SegmentName="Ethernet" CommResource="FORTE_PC" Comment="">
+	</Link>
+</System>
